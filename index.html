@@ -154,6 +154,24 @@
     .Lister li {
       margin-bottom: 0.5rem;
     }
+
+    /* New Text Analyzer Button Hover Effect */
+    .analyzer-button {
+      background: linear-gradient(to right, rgb(29, 28, 63), rgb(21, 37, 50), rgb(0, 2, 2));
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .analyzer-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(157, 78, 221, 0.7);
+      background: linear-gradient(to right, rgb(42, 40, 94), rgb(33, 58, 79), rgb(5, 7, 7));
+    }
   </style>
 </head>
 
@@ -200,7 +218,7 @@
   </div>
 
   <div class="TS">
-    <details>
+    <details id="tech-skills-dropdown">
       <summary><strong>Technical Skills</strong></summary>
       <div class="Lister">
         <ul>
@@ -221,15 +239,7 @@
 
   <div style="margin-top: 3rem; text-align: center;">
     <a href="text-analyzer.html" class="hover-link">
-      <button style="
-        background: linear-gradient(to right,rgb(29, 28, 63),rgb(21, 37, 50), rgb(0, 2, 2));
-        color: white;
-        border: none;
-        padding: 1rem 2rem;
-        font-size: 1.2rem;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: 0.3s ease;">
+      <button class="analyzer-button">
         Text Analyzer
       </button>
     </a>
@@ -241,6 +251,11 @@
     }
 
     function getElementType(el) {
+      // Check for details/summary elements (dropdown)
+      if (el.tagName === 'SUMMARY' || el.closest('details') !== null) {
+        return 'drop-down';
+      }
+      
       if (el.tagName === 'IMG') return 'image';
       if (el.tagName === 'SELECT') return 'drop-down';
       if (el.tagName === 'INPUT') return 'input';
@@ -251,15 +266,25 @@
       return el.tagName.toLowerCase();
     }
 
+    function logEvent(eventType, el) {
+      const elementType = getElementType(el);
+      const id = el.id || '(no id)';
+      console.log(`${getTimestamp()} , ${eventType} , ${elementType} , ${id}`);
+    }
+
+
     window.addEventListener('load', () => {
       console.log(`${getTimestamp()} , view , entire page`);
     });
 
+    
     document.addEventListener('click', (event) => {
-      const el = event.target;
-      const type = getElementType(el);
-      const id = el.id || '(no id)';
-      console.log(`${getTimestamp()} , click , ${type} , ${id}`);
+      logEvent('click', event.target);
+    });
+
+    document.getElementById('tech-skills-dropdown').addEventListener('toggle', (event) => {
+      const action = event.target.open ? 'open' : 'close';
+      console.log(`${getTimestamp()} , ${action} , drop-down , tech-skills-dropdown`);
     });
   </script>
 </body>

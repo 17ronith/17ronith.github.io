@@ -18,36 +18,12 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center; 
             min-height: 100vh;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
             color: white;
-        }
-
-        .intro-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgb(12, 136, 152), rgb(0, 68, 128), rgb(21, 21, 21));
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            cursor: pointer;
-            transition: all 0.8s ease;
-        }
-
-        .intro-text {
-            font-family: 'Roboto Slab', serif;
-            font-size: 5rem;
-            color: white;
-            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-            animation: pulse 2s infinite;
-            text-align: center;
-            font-weight: 700;
         }
 
         @keyframes pulse {
@@ -56,16 +32,11 @@
             100% { transform: scale(1); }
         }
 
-        .intro-subtext {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.5rem;
-            margin-top: 20px;
-            opacity: 0.8;
-        }
-
+        
         .main-content {
             width: 100%;
-            opacity: 0;
+            /* Changed from opacity: 0 to opacity: 1 */
+            opacity: 1;
             transition: opacity 1s ease;
             padding-bottom: 50px;
         }
@@ -86,21 +57,21 @@
             padding: 0;
             position: fixed;
             top: 0;
-            z-index: 100;
+            z-index: 75;
             transition: all 0.3s ease;
         }
 
         .nav-container {
             display: flex;
-            max-width: 1200px;
-            width: 100%;
-            justify-content: center;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 0 0 15px 15px;
-            padding: 0.8rem;
+            justify-content: space-around; 
+            align-items: center; 
+            max-width: 750px; 
+            width: 80%;
+            margin: auto;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 445px;
+            padding: 1rem;
             backdrop-filter: blur(10px);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            margin: 0 2rem;
         }
 
         .nav-link {
@@ -112,15 +83,13 @@
             transition: all 0.3s ease;
             font-family: 'Poppins', sans-serif;
             font-size: 1rem;
-            font-weight: 500;
         }
 
         .nav-link:hover, .nav-link.active {
-            background: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.2);
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
         }
+
 
         .page-content {
             width: 100%;
@@ -129,8 +98,8 @@
             box-sizing: border-box;
             display: none;
             animation: fadeIn 0.5s ease;
+            margin: auto; 
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -142,7 +111,7 @@
 
         .content {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: flex-start;
             width: 100%;
             margin-top: 2.5rem;
@@ -160,6 +129,7 @@
             border-radius: 15px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(5px);
+            margin: auto;
         }
 
         p {
@@ -199,11 +169,172 @@
             border-radius: 15px;
             box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .below-images img:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            width: 100%;
+            margin-top: 3.5rem;
+        }
+
+        .gallery-title {
+            font-family: 'Roboto Slab', serif;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        /* Image Grid Layout */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 250px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Additional Images Grid */
+        .additional-images {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            width: 100%;
+        }
+
+        .additional-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 200px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .additional-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .additional-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .additional-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Family Photos Section */
+        .family-photos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            width: 100%;
+        }
+
+        .family-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 220px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .family-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .family-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .family-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Modal styles for fullscreen images */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            display: block;
+            border-radius: 5px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            color: #ccc;
+            transform: scale(1.1);
         }
 
         .Education {
@@ -326,7 +457,7 @@
         }
         
         .Lister li::before {
-            content: '•';
+            content: '•';  /* Fixed bullet character */
             color: white;
             font-size: 1.5rem;
             position: absolute;
@@ -369,26 +500,21 @@
         }
 
         .cv-link {
-            margin-top: 2rem;
             font-size: 1.5rem;
-            padding: 1rem 2rem;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 30px;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 1.5rem;
         }
         
-        .cv-link:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        .gallery-subtitle {
+            font-family: 'Roboto Slab', serif;
+            font-weight: 500;
+            color: white;
+            margin: 2rem 0 1rem 0;
+            font-size: 1.5rem;
+            text-align: center;
         }
 
         @media (max-width: 1100px) {
-            .intro-text {
-                font-size: 3.5rem;
-            }
-            
+           
             .below-images {
                 flex-direction: row;
                 flex-wrap: wrap;
@@ -398,12 +524,18 @@
                 width: calc(50% - 1rem);
                 height: auto;
             }
+            
+            .image-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .additional-images, .family-photos {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
-            .intro-text {
-                font-size: 2.5rem;
-            }
+            
             
             .content, .Education {
                 flex-direction: column;
@@ -435,18 +567,15 @@
             h1 {
                 margin-top: 5rem;
             }
+            
+            .image-gallery, .additional-images, .family-photos {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="intro-screen" id="intro-screen">
-        <div>
-            <h1 class="intro-text">Hi, I'm Ronith</h1>
-            <p class="intro-subtext">Click anywhere to enter my website</p>
-        </div>
-    </div>
-
     <div class="main-content" id="main-content">
         <nav class="navbar">
             <div class="nav-container">
@@ -473,17 +602,64 @@
                     <p>My ultimate dream is to become an entrepreneur.
                         The idea of building something of your own and seeing it come to fruition is exciting - even if I haven't done it yet.
                     </p>
-                    
                 </div>
 
                 <div class="side-image">
-                    <img src="pfpISS copy.jpg" alt="Profile Picture" />
+                    <img src="pfpISS copy.jpg" alt="Profile Picture" data-full="pfpISS copy.jpg" class="expandable">
                 </div>
             </div>
 
             <div class="below-images">
-                <img src="train.jpg" alt="Image 1">
-                <img src="Infront of House.jpg" alt="Image 2">
+                <img src="train.jpg" alt="Train Image" data-full="train.jpg" class="expandable">
+                <img src="Infront of House.jpg" alt="House Image" data-full="Infront of House.jpg" class="expandable">
+            </div>
+            
+            <!-- Image Gallery Section -->
+            <div class="gallery-section">
+                <h2 class="gallery-title">My Photo Gallery</h2>
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img src="1137.jpg" alt="1137" data-full="1137.jpg" class="expandable">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="team.jpeg" alt="Team" data-full="team.jpeg" class="expandable">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="team2.jpeg" alt="Team 2" data-full="team2.jpeg" class="expandable">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="dubai.jpeg" alt="Dubai" data-full="dubai.jpeg" class="expandable">
+                    </div>
+                </div>
+                
+                <div class="additional-images">
+                    <div class="additional-item">
+                        <img src="nbh.jpeg" alt="North Basketball Hall" data-full="nbh.jpeg" class="expandable">
+                    </div>
+                    <div class="additional-item">
+                        <img src="vbh.jpeg" alt="Vertical Basketball Hall" data-full="vbh.jpeg" class="expandable">
+                    </div>
+                    <div class="additional-item">
+                        <img src="bbbhh.jpeg" alt="Basketball Hall" data-full="bbbhh.jpeg" class="expandable">
+                    </div>
+                    <div class="additional-item">
+                        <img src="yoboy.jpeg" alt="Yo Boy" data-full="yoboy.jpeg" class="expandable">
+                    </div>
+                </div>
+                
+                <!-- New Family Photos Section -->
+                <h3 class="gallery-subtitle">Family Photos</h3>
+                <div class="family-photos">
+                    <div class="family-item">
+                        <img src="family1.jpeg" alt="Family Photo 1" data-full="family1.jpeg" class="expandable">
+                    </div>
+                    <div class="family-item">
+                        <img src="family2.jpeg" alt="Family Photo 2" data-full="family2.jpeg" class="expandable">
+                    </div>
+                    <div class="family-item">
+                        <img src="ma1.jpg" alt="Family Photo 3" data-full="ma1.jpg" class="expandable">
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -499,7 +675,7 @@
                     </p>
                 </div>
                 <div class="EDImages">
-                    <img src="Chirec 1.jpg" alt="Education Image">
+                    <img src="Chirec 1.jpg" alt="Education Image" data-full="Chirec 1.jpg" class="expandable">
                 </div>
             </div>
         </div>
@@ -523,7 +699,7 @@
             <div class="cv-content">
                 <h2><b>Here is my CV</b></h2>
                 <a href="ISS_CV.pdf" class="hover-link cv-link">
-                    <p>Click Here to check out my CV</p>
+                    Click Here to check out my CV
                 </a>
             </div>
         </div>
@@ -542,8 +718,19 @@
             </div>
         </div>
     </div>
+    
+    <!-- Modal for fullscreen images -->
+    <div class="modal" id="imageModal">
+        <span class="close-modal">&times;</span>
+        <div class="modal-content">
+            <img id="modalImg" src="" alt="Fullscreen Image">
+        </div>
+    </div>
 
     <script>
+        // Make the main content visible immediately
+        document.getElementById('main-content').style.opacity = '1';
+        
         function getTimestamp() {
             return new Date().toLocaleString();
         }
@@ -553,40 +740,11 @@
             const id = el.id || '(no id)';
             console.log(`${getTimestamp()} , ${eventType} , ${elementType} , ${id}`);
         }
-
-        window.addEventListener('load', () => {
-            console.log(`${getTimestamp()} , view , intro screen`);
-        });
-        
+      
         document.addEventListener('click', (event) => {
             logEvent('click', event.target);
         });
       
-        const introScreen = document.getElementById('intro-screen');
-        const mainContent = document.getElementById('main-content');
-        
-
-        introScreen.addEventListener('click', function() {
-            
-            document.body.style.transition = "background 1.5s ease";
-            
-           
-            document.body.style.background = "linear-gradient(to right, rgb(21, 21, 21), rgb(0, 68, 128), rgb(12, 136, 152))";
-            
-           
-            introScreen.style.opacity = '0';
-            mainContent.style.opacity = '1';
-            
-         
-            setTimeout(() => {
-                introScreen.style.display = 'none';
-                document.body.style.transition = "";
-                document.body.style.background = "linear-gradient(to right, rgb(12, 136, 152), rgb(0, 68, 128), rgb(21, 21, 21))";
-            }, 1500);
-            
-            console.log(`${getTimestamp()} , enter , main content`);
-        });
-
         const navLinks = document.querySelectorAll('.nav-link');
         const pageContents = document.querySelectorAll('.page-content');
         
@@ -605,6 +763,78 @@
                 console.log(`${getTimestamp()} , navigate , link , ${targetId}`);
             });
         });
+        
+        // Improved modal handling for image expansion
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        const closeModal = document.querySelector('.close-modal');
+        const expandableImages = document.querySelectorAll('.expandable');
+        
+        // Make sure the modal is properly initialized
+        if (modal && modalImg && closeModal) {
+            expandableImages.forEach(img => {
+                img.addEventListener('click', function() {
+                    const fullSrc = this.getAttribute('data-full');
+                    modal.style.display = 'flex';
+                    modalImg.src = fullSrc;
+                    document.body.style.overflow = 'hidden'; 
+                    
+                    console.log(`${getTimestamp()} , view , image , ${fullSrc}`);
+                });
+                
+                // Add cursor pointer to make it clear images are clickable
+                img.style.cursor = 'pointer';
+            });
+            
+            closeModal.addEventListener('click', function() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            document.addEventListener('keydown', function(e) {
+                if (modal.style.display === 'flex') {
+                    if (e.key === 'Escape') {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                }
+            });
+        }
+        
+        // Ensure images are properly loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make main content visible
+            document.getElementById('main-content').style.opacity = '1';
+            
+            const lazyImages = document.querySelectorAll('img');
+            
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const image = entry.target;
+                            image.src = image.src; // Ensure image is loaded
+                            imageObserver.unobserve(image);
+                        }
+                    });
+                });
+                
+                lazyImages.forEach(function(image) {
+                    imageObserver.observe(image);
+                });
+            } else {
+                lazyImages.forEach(function(image) {
+                    image.src = image.src;
+                });
+            }
+        });
     </script>
 </body>
-</html>
+</html> 

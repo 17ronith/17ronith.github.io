@@ -137,6 +137,9 @@
   }
 }
 
+/* ── Smooth scroll ── */
+html { scroll-behavior: smooth; }
+
 /* ── Custom scrollbar ── */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }

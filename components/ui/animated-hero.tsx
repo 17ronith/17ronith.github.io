@@ -34,27 +34,6 @@ export default function AnimatedHero() {
       <div className="container mx-auto px-6 md:px-10">
         <div className="flex gap-6 py-24 lg:py-40 items-center justify-center flex-col">
 
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <a
-              href="https://iiit.ac.in"
-              target="_blank"
-              rel="noopener"
-              className={cn(
-                buttonVariants({ variant: "secondary", size: "sm" }),
-                "gap-3 text-xs font-mono tracking-widest uppercase"
-              )}
-            >
-              <span className="flex h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-              IIIT Hyderabad · CS &apos;27
-              <MoveRight className="w-3 h-3" />
-            </a>
-          </motion.div>
-
           {/* Headline */}
           <div className="flex gap-2 flex-col items-center">
             <motion.h1
